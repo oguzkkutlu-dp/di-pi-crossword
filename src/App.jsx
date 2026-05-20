@@ -272,6 +272,18 @@ function handleChange(r, c, value) {
         <div className="mascots">
           <div
   className="mascot-card mascot-clickable"
+  onPointerDown={() => {
+  const words = getWordsAtCell(r, c);
+
+  if (words.length === 0) return;
+
+  const word = getWordAtCell(r, c);
+
+  if (word) {
+    setActiveDirection(word.dir);
+    setActiveWordId(word.id);
+  }
+}}
   onClick={() => setShowHelp(true)}
   title="Di'den ipucu al"
 >
