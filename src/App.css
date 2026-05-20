@@ -131,9 +131,9 @@ h1 {
 }
 
 .cell.black {
-  background: linear-gradient(135deg, #edf6ff, #e8f1fb);
-  border: 1px solid #e2edf8;
-  opacity: 0.72;
+  background: linear-gradient(135deg, #f3f9ff, #edf5fc);
+  border: 1px solid #edf5fc;
+  opacity: 0.45;
 }
 
 .cell.white {
@@ -340,6 +340,10 @@ button.secondary {
   box-shadow: none;
 }
 
+.brand-letters {
+  margin-top: 12px;
+}
+
 .success-box {
   margin-top: 24px;
   background: linear-gradient(135deg, #ccfbf1, #ecfeff);
@@ -441,4 +445,29 @@ button.secondary {
     height: 96px;
     max-width: 96px;
   }
+
+    .cell.black {
+    opacity: 0.28;
+  }
+
+  .cell.white {
+    background: #ffffff;
+    border: 1px solid #b8c7d9;
+  }
+
+  .cell.active {
+    background: #ccfbf1 !important;
+    border: 2px solid #14b8a6;
+  }
+  
+}
+
+.num {
+  pointer-events: none;
+  z-index: 2;
+}
+
+.cell input {
+  position: relative;
+  z-index: 1;
 }
