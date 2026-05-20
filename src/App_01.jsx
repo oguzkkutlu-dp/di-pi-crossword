@@ -2,16 +2,95 @@ import { useMemo, useRef, useState } from "react";
 import "./App.css";
 
 const WORDS = [
-  { id: 1, answer: "STATISTICS", row: 1, col: 1, dir: "across", clue: "Optimizer'ın sorgu planı hazırlarken baktığı veri dağılım bilgisi." },
-  { id: 2, answer: "TEMPDB", row: 1, col: 2, dir: "down", clue: "Sort, hash ve geçici işlemlerin ortak uğrak yeri." },
-  { id: 3, answer: "INDEX", row: 1, col: 5, dir: "down", clue: "Tablo verilerine daha hızlı erişim sağlayan yapı." },
-  { id: 4, answer: "SCAN", row: 1, col: 1, dir: "down", clue: "SQL Server'ın indeksi baştan sona okuma davranışı." },
-  { id: 5, answer: "SEEK", row: 4, col: 4, dir: "across", clue: "İndeks üzerinden doğrudan hedef kayda gitme davranışı." },
-  { id: 6, answer: "REBUILD", row: 6, col: 1, dir: "down", clue: "Parçalanmış indeksi sıfırdan yeniden oluşturma işlemi." },
-  { id: 7, answer: "MEMORY", row: 7, col: 5, dir: "down", clue: "SQL Server'ın veri sayfalarını ve planları tuttuğu kritik kaynak." },
-  { id: 8, answer: "BUFFER", row: 8, col: 1, dir: "across", clue: "Diskten okunan sayfaların RAM'de tutulduğu alan." },
-  { id: 9, answer: "MAXDOP", row: 10, col: 6, dir: "across", clue: "Bir sorgunun en fazla kaç CPU çekirdeği kullanacağını belirleyen ayar." },
-  { id: 10, answer: "DMV", row: 10, col: 9, dir: "down", clue: "SQL Server'ın canlı sağlık ve performans bilgilerini veren sistem görünümleri." },
+  {
+    id: 1,
+    answer: "BACKUP",
+    row: 0,
+    col: 7,
+    dir: "down",
+    clue: "Felaket gelmeden önce alınır.",
+  },
+
+  {
+    id: 2,
+    answer: "QUERY",
+    row: 0,
+    col: 11,
+    dir: "down",
+    clue: "Veritabanına gönderilen sorgu.",
+  },
+
+  {
+    id: 3,
+    answer: "CPU",
+    row: 1,
+    col: 3,
+    dir: "across",
+    clue: "Kötü sorgularda ilk ağlayan donanım.",
+  },
+
+  {
+    id: 4,
+    answer: "CHAIN",
+    row: 1,
+    col: 3,
+    dir: "down",
+    clue: "Birbirini bekleyen sorgu zinciri.",
+  },
+
+  {
+    id: 5,
+    answer: "CACHE",
+    row: 2,
+    col: 7,
+    dir: "across",
+    clue: "Sık kullanılan verilerin hızlı alanı.",
+  },
+
+  {
+    id: 6,
+    answer: "JOIN",
+    row: 5,
+    col: 0,
+    dir: "across",
+    clue: "Tabloları birleştirme işlemi.",
+  },
+
+  {
+    id: 7,
+    answer: "PLAN",
+    row: 5,
+    col: 7,
+    dir: "across",
+    clue: "SQL Server’ın sorgu çalışma haritası.",
+  },
+
+  {
+    id: 8,
+    answer: "LOCK",
+    row: 5,
+    col: 8,
+    dir: "down",
+    clue: "Veriyi korumak için kullanılan kilitleme.",
+  },
+
+  {
+    id: 9,
+    answer: "DEADLOCK",
+    row: 8,
+    col: 1,
+    dir: "across",
+    clue: "İki sorgunun birbirini sonsuza kadar beklemesi.",
+  },
+
+  {
+    id: 10,
+    answer: "LOG",
+    row: 7,
+    col: 6,
+    dir: "down",
+    clue: "Transaction kayıtlarının tutulduğu yapı.",
+  },
 ];
 
 const SIZE = 13;

@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import "./App.css";
 
+
 const WORDS = [
   {
     id: 1,
@@ -295,6 +296,7 @@ function formatTime(totalSeconds) {
     <div className="success-modal">
       <h2>🎉 Tebrikler!</h2>
       <p>Di sevindi, Pi kahvesini dökmeden onayladı.</p>
+      <p className="finish-time">Süre: {formatTime(seconds)}</p>
       <div className="success-badge">
         DATA PLATFORM Certified Crossword Solver
       </div>
