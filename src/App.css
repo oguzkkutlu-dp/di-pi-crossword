@@ -511,12 +511,14 @@ button.secondary {
 
   .board {
     overflow-x: auto;
+     -webkit-overflow-scrolling: touch;
   }
 
   .grid {
     grid-template-columns: repeat(13, 1fr);
     gap: 5px;
     min-width: 100%;
+    width: max-content;
   }
 
   .cell {
