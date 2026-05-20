@@ -578,3 +578,11 @@ button.secondary {
   }
 
 }
+
+.version-label {
+  margin-top: 24px;
+  text-align: center;
+  font-size: 12px;
+  color: #64748b;
+  opacity: 0.75;
+}

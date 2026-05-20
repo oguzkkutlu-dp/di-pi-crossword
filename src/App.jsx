@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import "./App.css";
 
+const APP_VERSION = "dpGame v1.0.42";
 
 const WORDS = [
   {
@@ -287,10 +288,14 @@ function formatTime(totalSeconds) {
           <strong>{score}</strong>
         </div>
 
+
+
         <div className="timer-box">
   <span>Süre</span>
   <strong>{formatTime(seconds)}</strong>
+
 </div>
+
 {score === 100 && (
   <div className="success-overlay">
     <div className="success-modal">
@@ -300,6 +305,7 @@ function formatTime(totalSeconds) {
       <div className="success-badge">
         DATA PLATFORM Certified Crossword Solver
       </div>
+
       <button onClick={resetGame}>Yeni deneme</button>
     </div>
   </div>
@@ -445,6 +451,9 @@ onClick={() => {
     <div key={i} className={`brand-cell ${char === " " ? "space" : ""}`}>
       {char === " " ? "" : char}
     </div>
+
+
+    
   ))}
 </div>
         </section>
@@ -480,7 +489,9 @@ onClick={() => {
               Sıfırla
             </button>
           </div>
-
+            <div className="version-label">
+  {APP_VERSION}
+</div>
           {score === 100 && (
             <div className="success">
               Tamamlandı. Di sevindi, Pi kahvesini dökmeden onayladı.
