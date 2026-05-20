@@ -1,4 +1,4 @@
-import { useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import "./App.css";
 
 const WORDS = [
@@ -124,6 +124,8 @@ export default function App() {
   const [activeDirection, setActiveDirection] = useState("across");
   const [activeWordId, setActiveWordId] = useState(null);
   const [showHelp, setShowHelp] = useState(false);
+const [seconds, setSeconds] = useState(0);
+const [isFinished, setIsFinished] = useState(false);
 
   const total = grid.flat().filter((cell) => cell.letter).length;
 
@@ -227,9 +229,36 @@ function handleChange(r, c, value) {
   }
 }
 
+useEffect(() => {
+  if (isFinished) return;
+
+  const timer = setInterval(() => {
+    setSeconds((prev) => prev + 1);
+  }, 1000);
+
+  return () => clearInterval(timer);
+}, [isFinished]);
+
+useEffect(() => {
+  if (score === 100) {
+    setIsFinished(true);
+  }
+}, [score]);
+
+function formatTime(totalSeconds) {
+  const minutes = Math.floor(totalSeconds / 60);
+  const remainingSeconds = totalSeconds % 60;
+
+  return `${String(minutes).padStart(2, "0")}:${String(remainingSeconds).padStart(2, "0")}`;
+}
+
   function resetGame() {
     setAnswers({});
     setChecked(false);
+    setSeconds(0);
+    setIsFinished(false);
+    setActiveWordId(null);
+    setActiveDirection("across");
   }
 
   function selectWord(word) {
@@ -256,6 +285,11 @@ function handleChange(r, c, value) {
           <span>Skor</span>
           <strong>{score}</strong>
         </div>
+
+        <div className="timer-box">
+  <span>Süre</span>
+  <strong>{formatTime(seconds)}</strong>
+</div>
 {score === 100 && (
   <div className="success-overlay">
     <div className="success-modal">
