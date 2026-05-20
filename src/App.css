@@ -406,3 +406,39 @@ button.secondary {
   box-shadow: 0 30px 80px rgba(15, 23, 42, 0.28);
   animation: popSuccess 0.4s ease;
 }
+
+@media (max-width: 768px) {
+  .hero {
+    grid-template-columns: 1fr;
+    padding: 18px;
+    gap: 12px;
+    text-align: center;
+  }
+
+  .hero h1 {
+    font-size: 34px;
+    line-height: 1.05;
+  }
+
+  .hero p {
+    font-size: 16px;
+  }
+
+  .score {
+    margin: 0 auto;
+  }
+
+  .mascots {
+    justify-content: center;
+    height: 100px;
+  }
+
+  .mascot-card {
+    height: 100px;
+  }
+
+  .mascot-card img {
+    height: 96px;
+    max-width: 96px;
+  }
+}
