@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import "./App.css";
 
-const APP_VERSION = "dpGame v1.0.42";
+const APP_VERSION = "dpGame v1.0.43";
 
 const WORDS = [
   {
