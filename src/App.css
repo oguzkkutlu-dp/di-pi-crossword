@@ -133,7 +133,16 @@ h1 {
 .cell.black {
   background: linear-gradient(135deg, #f3f9ff, #edf5fc);
   border: 1px solid #edf5fc;
-  opacity: 0.45;
+  position: relative;
+}
+
+.cell.black::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(255,255,255,0.45);
+  border-radius: 6px;
+  pointer-events: none;
 }
 
 .cell.white {
@@ -459,15 +468,15 @@ button.secondary {
     background: #ccfbf1 !important;
     border: 2px solid #14b8a6;
   }
-  
+
 }
 
 .num {
   pointer-events: none;
-  z-index: 2;
+  z-index: 4;
 }
 
 .cell input {
   position: relative;
-  z-index: 1;
+  z-index: 3;
 }
